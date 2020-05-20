@@ -12,3 +12,5 @@ export const phases = [
     value: "DONE",
   },
 ];
+
+export const EVENT_CLOSE = "close";
