@@ -4,28 +4,35 @@
       <board :name="phase.name" :value="phase.value" />
     </div>
     <create-task :open="open" @handlePopupEvent="handleEvent"></create-task>
+    <create-category :open="catOpen" @handlePopupEvent="handleCatEvent"></create-category>
   </div>
 </template>
 <script>
 import Board from "../components/Board";
 import CreateTask from "../components/CreateTask";
+import CreateCategory from "../components/category/CreateCategory";
 import { phases, EVENT_CLOSE } from "../constants/constant";
 export default {
   name: "BoardView",
   components: {
     Board,
-    CreateTask
+    CreateTask,
+    CreateCategory
   },
   data() {
     return {
       phases: phases,
       open: false,
-      width: 500
+      catOpen: false
     };
   },
   methods: {
     handleEvent(event) {
       if (event.type === EVENT_CLOSE) this.open = false;
+    },
+    handleCatEvent(event) {
+      if (event.type === EVENT_CLOSE) this.catOpen = false;
+      else this.catOpen = false;
     }
   }
 };

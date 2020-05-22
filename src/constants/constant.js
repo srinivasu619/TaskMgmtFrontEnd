@@ -14,3 +14,4 @@ export const phases = [
 ];
 
 export const EVENT_CLOSE = "close";
+export const EVENT_ERROR = "error";
