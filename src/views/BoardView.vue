@@ -12,6 +12,7 @@ import Board from "../components/Board";
 import CreateTask from "../components/CreateTask";
 import CreateCategory from "../components/category/CreateCategory";
 import { phases, EVENT_CLOSE } from "../constants/constant";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "BoardView",
   components: {
@@ -26,7 +27,18 @@ export default {
       catOpen: false
     };
   },
+  computed: {
+    ...mapState({
+      categories: state => state.CategoryState.categories
+    })
+  },
+  created() {
+    this.fetchAllCategories();
+  },
   methods: {
+    ...mapActions({
+      fetchAllCategories: "fetchAllCategories"
+    }),
     handleEvent(event) {
       if (event.type === EVENT_CLOSE) this.open = false;
     },

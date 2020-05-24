@@ -50,11 +50,13 @@
             name="taskCat"
             id="taskCat"
             v-model="taskDetail.taskCategory"
-            class=" block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
           >
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
+            <option
+              :value="category.catrgoryId"
+              v-for="(category,index) in categories"
+              :key="index"
+            >{{category.catrgoryName}}</option>
           </select>
         </div>
       </div>
@@ -65,10 +67,10 @@
             name="taskPriority"
             id="taskPriority"
             v-model="taskDetail.taskPriority"
-            class=" block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
           >
-          <option>Normal</option>
-          <option>High</option>
+            <option>Normal</option>
+            <option>High</option>
           </select>
         </div>
       </div>
@@ -79,16 +81,23 @@
             name="taskStatus"
             id="taskStatus"
             v-model="taskDetail.taskStatus"
-            class=" block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
           >
-          <option>option 1</option>
-          <option>option 2</option>
+            <option>option 1</option>
+            <option>option 2</option>
           </select>
         </div>
       </div>
       <div class="form-actions pt-1 flex justify-end">
-        <button class="bg-blue-500 text-white px-2 py-1 rounded mr-4" @click="handlePopupEvent()">Cancel</button>
-        <button class="bg-blue-500 text-white px-2 py-1 rounded" @click="handlePopupEvent()" name="save">Save</button>
+        <button
+          class="bg-blue-500 text-white px-2 py-1 rounded mr-4"
+          @click="handlePopupEvent()"
+        >Cancel</button>
+        <button
+          class="bg-blue-500 text-white px-2 py-1 rounded"
+          @click="handlePopupEvent()"
+          name="save"
+        >Save</button>
       </div>
     </div>
   </base-dialog>
@@ -96,6 +105,7 @@
 <script>
 import BaseDialog from "./base/BaseDialog";
 import { EVENT_CLOSE } from "../constants/constant";
+import { mapState } from "vuex";
 export default {
   name: "CreateTask",
   components: {
@@ -107,16 +117,21 @@ export default {
       default: false
     }
   },
+  computed: {
+    ...mapState({
+      categories: state => state.CategoryState.categories
+    })
+  },
   data() {
     return {
       width: 700,
-      taskDetail:{
-        taskTitle:"",
-        description:"",
-        dueDate:new Date().toString().slice(0,10),
-        taskPriority:"",
-        taskCategory:"",
-        taskStatus: "",
+      taskDetail: {
+        taskTitle: "",
+        description: "",
+        dueDate: new Date().toString().slice(0, 10),
+        taskPriority: "",
+        taskCategory: "",
+        taskStatus: ""
       }
     };
   },
