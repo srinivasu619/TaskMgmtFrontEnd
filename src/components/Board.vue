@@ -12,6 +12,7 @@
 </template>
 <script>
 import Task from "./Task";
+import { mapState } from "vuex";
 export default {
   name: "Board",
   components: {
@@ -25,25 +26,32 @@ export default {
       type: String
     }
   },
+  computed: {
+    ...mapState({
+      tasks(state) {
+        return state.TaskState[`${this.name}List`];
+      }
+    })
+  },
   data() {
     return {
-      tasks: [
-        {
-          category: "DEVELOPMENT",
-          title: "TASK 1",
-          description: "This is the description..."
-        },
-        {
-          category: "SHOPPING",
-          title: "TASK 22",
-          description: "This is the description..."
-        },
-        {
-          category: "PERSONAL",
-          title: "TASK 4",
-          description: "This is the description..."
-        }
-      ]
+      // tasks: [
+      //   {
+      //     category: "DEVELOPMENT",
+      //     title: "TASK 1",
+      //     description: "This is the description..."
+      //   },
+      //   {
+      //     category: "SHOPPING",
+      //     title: "TASK 22",
+      //     description: "This is the description..."
+      //   },
+      //   {
+      //     category: "PERSONAL",
+      //     title: "TASK 4",
+      //     description: "This is the description..."
+      //   }
+      // ]
     };
   }
 };

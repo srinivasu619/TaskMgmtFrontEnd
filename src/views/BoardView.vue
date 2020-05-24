@@ -33,11 +33,13 @@ export default {
     })
   },
   created() {
+    this.initializeTaskLists(phases);
     this.fetchAllCategories();
   },
   methods: {
     ...mapActions({
-      fetchAllCategories: "fetchAllCategories"
+      fetchAllCategories: "fetchAllCategories",
+      initializeTaskLists: "initializeTaskLists"
     }),
     handleEvent(event) {
       if (event.type === EVENT_CLOSE) this.open = false;
