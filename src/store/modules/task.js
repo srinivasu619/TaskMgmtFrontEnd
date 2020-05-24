@@ -4,7 +4,7 @@ const mutations = {
   INTIALIZE(state, phases) {
     phases.forEach((phase) => {
       const name = `${phase.name.toLowerCase()}List`;
-      state[name] = { ...state, name: [] };
+      state[name] = [];
     });
   },
 };
