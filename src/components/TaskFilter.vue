@@ -15,6 +15,7 @@
             class="block h-8 cursor-pointer text-gray-800 font-semibold appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-1 pr-8 rounded leading-tight focus:outline-none"
             v-model="filterObject.categoryId"
           >
+            <option value="" disabled selected hidden>Select category</option>
             <option
               class="hover:bg-gray-100 text-gray-800 font-semibold"
               v-for="(category, index) in categories"
@@ -37,7 +38,7 @@
       </div>
       <div class="flex-col mx-1 my-1 w-4/12">
         <div>Priority</div>
-        <button-group :buttonArray="priorityBtnArray" @btnGroupSelect="updatePriority"></button-group>
+        <button-group :buttonArray="priorityBtnArray" :resetClicked="resetPriority" @btnGroupSelect="updatePriority"></button-group>
       </div>
       <div class="flex mx-1 my-2 items-end w-3/12">
         <input
@@ -78,10 +79,10 @@ export default {
     return {
       filterObject: {
         name: "",
-        categoryId: 1,
+        categoryId: "",
         priority: ""
       },
-      selectedPriority: -1,
+      resetPriority: false,
       priorityBtnArray: priorityButtons
     };
   },
@@ -102,9 +103,14 @@ export default {
     },
     // TODO: Reset funtionality for Button Group
     resetFilters() {
+      this.resetPriority = true;
       this.filterObject.name = "";
-      this.filterObject.categoryId = 1;
+      this.filterObject.categoryId = "";
       this.updateFilterObject();
+
+      this.$nextTick(() => {
+        this.resetPriority = false;
+      });
     }
   }
 };
