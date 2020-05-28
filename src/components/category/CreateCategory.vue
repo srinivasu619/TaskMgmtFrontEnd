@@ -13,7 +13,7 @@
             name="categoryName"
             id="categoryName"
             placeholder="Enter Category Name"
-            v-model="category.catrgoryName"
+            v-model="category.categoryName"
             class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
           />
         </div>
@@ -60,7 +60,7 @@ export default {
     return {
       width: 500,
       category: {
-        catrgoryName: "",
+        categoryName: "",
         categoryDescription: ""
       }
     };

@@ -53,10 +53,10 @@
             class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
           >
             <option
-              :value="category.catrgoryId"
+              :value="category.categoryId"
               v-for="(category,index) in categories"
               :key="index"
-            >{{category.catrgoryName}}</option>
+            >{{category.categoryName}}</option>
           </select>
         </div>
       </div>
