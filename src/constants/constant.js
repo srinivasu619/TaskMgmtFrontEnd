@@ -5,7 +5,7 @@ export const phases = [
   },
   {
     name: "In-Progress",
-    value: "INPROGRESS",
+    value: "IN_PROGRESS",
   },
   {
     name: "Done",
@@ -34,3 +34,5 @@ export const priorityButtons = [
 
 export const EVENT_CLOSE = "close";
 export const EVENT_ERROR = "error";
+
+export const PAGE_SIZE = 5;

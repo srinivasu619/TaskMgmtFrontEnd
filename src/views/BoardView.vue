@@ -31,7 +31,8 @@ export default {
     return {
       phases: phases,
       open: false,
-      catOpen: true
+      catOpen: false,
+      loadBoards: false
     };
   },
   computed: {
@@ -42,6 +43,7 @@ export default {
   created() {
     this.initializeTaskLists(phases);
     this.fetchAllCategories();
+    this.loadBoards = true;
   },
   methods: {
     ...mapActions({

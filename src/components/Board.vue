@@ -5,14 +5,18 @@
         class="flex items-center p-2 font-light border-b border-gray-300 text-gray-500 text-lg uppercase tracking-widest bg-gray-300"
       >{{name}}</div>
     </slot>
-    <div class="taskContainer py-2 px-3">
+    <div class="taskContainer py-2 px-3 max-h-full overflow-auto">
       <task v-for="(task,index) in tasks" :key="index" :task="task"></task>
     </div>
+    <div
+      class="py-2 text-center mt-2 cursor-pointer bg-gray-300 w-1/2 mx-auto rounded-md"
+      @click="loadMoreTasks()"
+    >Load More...</div>
   </div>
 </template>
 <script>
 import Task from "./Task";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "Board",
   components: {
@@ -29,31 +33,22 @@ export default {
   computed: {
     ...mapState({
       tasks(state) {
-        return state.TaskState[`${this.name}List`];
+        return state.TaskState[this.value];
       }
     })
   },
   data() {
     return {
-      // tasks: [
-      //   {
-      //     category: "DEVELOPMENT",
-      //     title: "TASK 1",
-      //     description: "This is the description..."
-      //   },
-      //   {
-      //     category: "SHOPPING",
-      //     title: "TASK 22",
-      //     description: "This is the description..."
-      //   },
-      //   {
-      //     category: "PERSONAL",
-      //     title: "TASK 4",
-      //     description: "This is the description..."
-      //   }
-      // ]
     };
-  }
+  },
+  methods: {
+    ...mapActions({
+      fetchTaskList: 'fetchTaskList'
+    }),
+    loadMoreTasks(){
+      this.fetchTaskList(this.value, true);
+    }
+  },
 };
 </script>
 <style>
