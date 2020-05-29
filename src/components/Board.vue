@@ -43,10 +43,15 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchTaskList: 'fetchTaskList'
+      fetchTaskList: 'fetchTaskList',
+      incrementPhasePagination: 'incrementPhasePagination'
     }),
     loadMoreTasks(){
-      this.fetchTaskList(this.value, true);
+      this.incrementPhasePagination(this.value);
+      this.fetchTaskList({
+        phase: this.value, 
+        append: true
+      });
     }
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-lg p-2 mb-2 bg-white cursor-pointer">
+  <div class="shadow-xs p-2 mb-2 bg-white cursor-pointer">
     <div
       class="category uppercase text-blue-300 mb-1 font-bold tracking-widest text-xs"
     >{{task.category.categoryName}}</div>
