@@ -3,8 +3,8 @@
     <button
       v-for="(button, index) in buttonArray"
       :key="index"
-      :class="{ 'bg-gray-200 border-gray-500': index === selectedIndex, 'rounded-l': index === 0 , 'rounded-r': index === buttonArray.length - 1}"
-      class="w-1/4 bg-white hover:bg-gray-200 text-gray-800 font-semibold my-1 py-1 px-4 h-8 border border-gray-400"
+      :class="{ 'text-blue-600 border-blue-600': index === selectedIndex, 'rounded-l': index === 0 , 'rounded-r': index === buttonArray.length - 1}"
+      class="w-1/4 font-semibold hover:text-blue-600 hover:border-blue-600 text-gray-400 my-1 py-1 px-4 h-8 border border-gray-400"
       @click="changeActiveState(index)"
     >{{button.name}}</button>
   </div>
@@ -40,3 +40,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.btn-blue {
+  @apply text-blue-600 !important;
+}
+</style>

@@ -1,14 +1,27 @@
 <template>
-  <div class="shadow-xs p-2 mb-2 bg-white cursor-pointer">
-    <div
-      class="category uppercase text-blue-300 mb-1 font-bold tracking-widest text-xs"
-    >{{task.category.categoryName}}</div>
+  <div class="shadow-xs p-2 mb-2 bg-white">
+    <div class="flex items-center justify-between">
+      <div
+        class="flex category uppercase text-blue-300 mb-1 font-bold tracking-widest text-xs"
+      >{{task.category.categoryName}}</div>
+      <div class="flex items-center">
+        <i class="fas rotate-icon fa-arrows-alt-v text-gray-500 mr-3 cursor-pointer"></i>
+        <i class="fas fa-ellipsis-h text-gray-500 text-xs cursor-pointer"></i>
+      </div>
+    </div>
     <h2 class="font-bold">{{task.taskName}}</h2>
     <p>{{task.description}}</p>
     <div class="flex items-center justify-between">
-      <div class="flex items-center px-2 py-1 text-gray-600 bg-gray-200 rounded-full">
+      <div
+        v-if="task.dueDate >= 0"
+        class="flex items-center px-2 py-1 text-gray-600 bg-gray-200 rounded-full"
+      >
         <i class="far fa-clock text-xs mr-1"></i>
-        <span class="text-xs">10 Days</span>
+        <span class="text-xs">{{task.dueDate}} days</span>
+      </div>
+      <div v-else class="flex items-center px-2 py-1 bg-red-400 rounded-full">
+        <i class="far fa-clock text-xs mr-1"></i>
+        <span class="text-xs">Overdue</span>
       </div>
       <i class="far fa-arrow-alt-circle-up text-red-400"></i>
     </div>
@@ -24,5 +37,9 @@ export default {
   }
 };
 </script>
+
 <style>
+.rotate-icon {
+  transform: rotate(45deg);
+}
 </style>
