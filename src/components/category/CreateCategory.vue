@@ -44,7 +44,7 @@
 <script>
 import BaseDialog from "../base/BaseDialog";
 import { saveCategory } from "../../services/category";
-import { EVENT_ERROR, EVENT_CLOSE } from "../../constants/constant";
+import { EVENT_ERROR, EVENT_CLOSE, EVENT_SAVE } from "../../constants/constant";
 export default {
   name: "CreateCategory",
   components: {
@@ -71,7 +71,7 @@ export default {
       try {
         const res = await saveCategory(this.category);
         info = res;
-        eventType = EVENT_CLOSE;
+        eventType = EVENT_SAVE;
       } catch (error) {
         info = error;
         eventType = EVENT_ERROR;

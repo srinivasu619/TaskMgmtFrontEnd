@@ -5,8 +5,8 @@
         class="flex category uppercase text-blue-300 mb-1 font-bold tracking-widest text-xs"
       >{{task.category.categoryName}}</div>
       <div class="flex items-center">
-        <i class="fas rotate-icon fa-arrows-alt-v text-gray-500 mr-3 cursor-pointer"></i>
-        <i class="fas fa-ellipsis-h text-gray-500 text-xs cursor-pointer"></i>
+        <i class="fas rotate-icon fa-arrows-alt-v text-gray-500 mr-3 cursor-pointer" @click="expand"></i>
+        <!-- <i class="fas fa-ellipsis-h text-gray-500 text-xs cursor-pointer"></i> -->
       </div>
     </div>
     <h2 class="font-bold">{{task.taskName}}</h2>
@@ -23,16 +23,28 @@
         <i class="far fa-clock text-xs mr-1"></i>
         <span class="text-xs">Overdue</span>
       </div>
-      <i class="far fa-arrow-alt-circle-up text-red-400"></i>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "Task",
+  components: {
+  },
   props: {
     task: {
       type: Object
+    }
+  },
+  data() {
+    return {
+      showTaskPopup: false,
+      currentComponent: null
+    };
+  },
+  methods: {
+    expand() {
+      this.$emit('actionIconClick', {'actionName': 'expand', 'data':this.task.id} )
     }
   }
 };
