@@ -6,7 +6,7 @@
       >{{name}}</div>
     </slot>
     <div class="taskContainer py-2 px-3 max-h-full overflow-auto">
-      <task v-for="(task,index) in tasks" :key="index" :task="task"></task>
+      <task v-for="(task,index) in tasks" :key="index" :task="task" @actionIconClick="handleActionIconClick"></task>
     </div>
     <div
       class="py-2 text-center mt-2 cursor-pointer bg-gray-300 w-1/2 mx-auto rounded-md"
@@ -52,6 +52,10 @@ export default {
         phase: this.value, 
         append: true
       });
+    },
+    handleActionIconClick(action) {
+      this.$emit('actionIconClick', action)
+      
     }
   },
 };

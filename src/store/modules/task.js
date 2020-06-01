@@ -1,5 +1,5 @@
 import { PAGE_SIZE } from "../../constants/constant";
-import { getTasks } from "../../services/task";
+import { getTasks, createTask, updateTask, getTaskDetails } from "../../services/task";
 const state = {
   TODO: [],
   IN_PROGRESS: [],
@@ -62,6 +62,33 @@ const actions = {
   },
   incrementPhasePagination({commit}, phase){
     commit("INC_PAGINATION", phase);
+  },
+  async createNewTask(context, task) {
+    try {
+      const response = await createTask(task)
+      return response.data;
+    } catch(err) {
+      console.log(err);
+      throw err;
+    }
+  },
+  async updateTask(context, task) {
+    try {
+      const response = await updateTask(task)
+      return response.data;
+    } catch(err) {
+      console.log(err);
+      throw err;
+    }
+  },
+  async fetchTaskDetails(context, taskId) {
+    try {
+      const response = await getTaskDetails(taskId)
+      return response.data;
+    } catch(err) {
+      console.log(err);
+      throw err;
+    }
   }
 };
 

@@ -1,4 +1,5 @@
 import { HTTP } from "./http-client";
+import { URL } from "../constants/constant";
 import { mapQueryString } from "./utils.js";
 
 export function getTasks(filterObj) {
@@ -11,3 +12,16 @@ export function getTasks(filterObj) {
         return response;
     });
 }
+
+export function getTaskDetails(id) {
+    return HTTP.get(`${URL.tasks}/${id}`)
+}
+
+export function createTask(task) {
+    return HTTP.post(`${URL.tasks}`, task)
+}
+
+export function updateTask(task) {
+    return HTTP.put(`${URL.tasks}/${task.id}`, task)
+}
+
