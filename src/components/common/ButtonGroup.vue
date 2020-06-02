@@ -42,7 +42,4 @@ export default {
 </script>
 
 <style>
-.btn-blue {
-  @apply text-blue-600 !important;
-}
 </style>

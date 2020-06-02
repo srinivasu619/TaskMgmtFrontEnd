@@ -1,6 +1,6 @@
 <template>
-  <div class="flex-col h-full">
-    <div class="flex justify-end">
+  <div class="flex flex-col h-full">
+    <div class="flex flex-shrink justify-end">
       <button
         class="bg-blue-600 hover:bg-blue-700 text-white my-1 py-1 px-4 h-8 rounded"
         @click="open=!open"
@@ -23,7 +23,7 @@
     <div v-show="filtersVisible">
       <task-filter @load="loadTasks"></task-filter>
     </div>
-    <div class="flex py-4 h-full">
+    <div class="flex py-4 flex-grow board-height">
       <div class="w-1/3 mx-2 h-full bg-gray-100" v-for="(phase, index) in phases" :key="index">
         <board :name="phase.name" :value="phase.value"  @actionIconClick="handleTaskActionClick"/>
       </div>
@@ -127,5 +127,9 @@ export default {
   }
 };
 </script>
+
 <style>
+.board-height{
+  height: calc(100% - 40px);
+}
 </style>
