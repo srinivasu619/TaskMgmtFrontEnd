@@ -1,6 +1,6 @@
 <template>
   <base-dialog v-if="open" :width="width">
-    <div class="p-8 bg-gray-200 rounded-md">
+    <div class="p-8 bg-gray-200 rounded">
       <div class="flex justify-between mb-3">
         <div class="text-2xl font-bold">Create Task</div>
         <i class="fas fa-times text-xl cursor-pointer" @click="handlePopupEvent(EVENT_CLOSE)"></i>
@@ -14,7 +14,7 @@
             id="taskTitle"
             placeholder="Enter Title"
             v-model="taskDetail.taskName"
-            class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+            class="bg-gray-400 focus:outline-none border border-gray-300 rounded focus:border-blue-500 py-2 px-4 block w-full appearance-none leading-normal"
           />
         </div>
       </div>
@@ -27,7 +27,7 @@
             id="taskDesc"
             placeholder="Enter Task Description"
             v-model="taskDetail.description"
-            class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="bg-gray-400 focus:outline-none border border-gray-300 focus:border-blue-500 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
           />
         </div>
       </div>
@@ -39,7 +39,7 @@
             name="taskDueDate"
             id="taskDueDate"
             v-model="taskDetail.dueDate"
-            class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="bg-gray-400 focus:outline-none border border-gray-300 focus:border-blue-500 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
           />
         </div>
       </div>
@@ -50,7 +50,7 @@
             name="taskCat"
             id="taskCat"
             v-model="taskDetail.categoryId"
-            class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="block bg-gray-400 focus:outline-none border focus:border-blue-500 border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
           >
             <option
               :value="category.categoryId"
@@ -67,7 +67,7 @@
             name="taskPriority"
             id="taskPriority"
             v-model="taskDetail.priority"
-            class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="block bg-gray-400 border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
           >
             <option
               :value="priority.value"
@@ -84,7 +84,7 @@
             name="taskStatus"
             id="taskStatus"
             v-model="taskDetail.status"
-            class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="block bg-gray-400 focus:outline-none   border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
           >
             <option
               :value="status.value"
@@ -96,11 +96,11 @@
       </div> -->
       <div class="form-actions pt-1 flex justify-end">
         <button
-          class="bg-blue-500 text-white px-2 py-1 rounded mr-4"
+          class="bg-blue-500 text-white px-2 py-1 rounded mr-4 focus:outline-none"
           @click="handlePopupEvent(EVENT_CLOSE)"
         >Cancel</button>
         <button
-          class="bg-blue-500 text-white px-2 py-1 rounded"
+          class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none"
           @click="handlePopupEvent(EVENT_SAVE)"
           name="save"
         >Save</button>

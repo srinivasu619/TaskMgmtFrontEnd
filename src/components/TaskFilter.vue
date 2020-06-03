@@ -4,7 +4,7 @@
       <div class="font-bold">Category</div>
       <div class="inline-block h-8 w-full relative my-1">
         <select
-          class="block h-8 cursor-pointer text-gray-800 font-semibold appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 py-1 pr-8 rounded leading-tight focus:outline-none"
+          class="block h-8 cursor-pointer text-gray-800 font-semibold appearance-none w-full border border-gray-400 hover:border-gray-500 px-4 items-center pr-8 rounded leading-tight focus:outline-none"
           v-model="filterObject.categoryId"
         >
           <option value disabled selected hidden>Select category</option>
@@ -42,13 +42,13 @@
     </div>
     <div class="flex w-1/12 items-end my-1 mx-1">
       <button
-        class="w-full hover:bg-blue-700 text-white bg-blue-600 my-1 py-1 px-4 h-8 rounded"
+        class="w-full hover:bg-blue-700 text-white bg-blue-600 my-1 items-center px-4 h-8 rounded focus:outline-none"
         @click="applyFilters"
       >Apply</button>
     </div>
     <div class="flex w-1/12 items-end my-1 mx-1">
       <button
-        class="w-full hover:bg-blue-100 text-blue-600 font-semibold my-1 py-1 px-4 h-8 border border-blue-600 rounded"
+        class="w-full hover:bg-blue-100 text-blue-600 font-semibold my-1 items-center px-4 h-8 border border-blue-600 rounded focus:outline-none"
         @click="resetFilters"
       >Reset</button>
     </div>

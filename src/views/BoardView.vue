@@ -1,20 +1,20 @@
 <template>
   <div class="flex flex-col h-full">
-    <div class="flex flex-shrink justify-end">
+    <div class="flex flex-shrink justify-end px-2">
       <button
-        class="bg-blue-600 hover:bg-blue-700 text-white my-1 py-1 px-4 h-8 rounded"
+        class="bg-blue-600 hover:bg-blue-700 text-white my-1 py-1 px-4 h-8 rounded focus:outline-none"
         @click="open=!open"
       >
         <i class="fas fa-tasks"></i> &nbsp; &nbsp;Create Task
       </button>
       <button
-        class="bg-blue-600 text-white my-1 py-1 px-4 h-8 rounded ml-2"
+        class="bg-blue-600 text-white my-1 py-1 px-4 h-8 rounded ml-2 focus:outline-none"
         @click="catOpen=!catOpen"
       >
         <i class="fas fa-th-large"></i> &nbsp; &nbsp;Add Category
       </button>
       <button
-        class="bg-blue-600 text-white my-1 py-1 px-4 h-8 rounded ml-2"
+        class="bg-blue-600 text-white my-1 py-1 px-4 h-8 rounded ml-2 focus:outline-none"
         @click="filtersVisible=!filtersVisible"
       >
         <i class="fas fa-filter"></i>

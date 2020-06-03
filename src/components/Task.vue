@@ -12,7 +12,7 @@
     <h2 class="font-bold">{{task.taskName}}</h2>
     <p>{{task.description}}</p>
     <div class="flex items-center justify-between">
-      <div v-if="task.completionDate" class="flex items-center px-2 py-1 bg-green-500 rounded-full">
+      <div v-if="task.completionDate" class="flex items-center px-2 py-1 bg-green-400 rounded-full">
         <i class="far fa-clock text-xs mr-1"></i>
         <span class="text-xs">Completed</span>
       </div>

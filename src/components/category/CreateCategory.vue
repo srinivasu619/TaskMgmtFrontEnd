@@ -1,6 +1,6 @@
 <template>
   <base-dialog v-if="open" :width="width">
-    <div class="p-8 bg-gray-200 rounded-md">
+    <div class="p-8 bg-gray-200 rounded">
       <div class="flex justify-between mb-3">
         <div class="text-2xl font-bold">Categories</div>
         <i class="fas fa-times text-xl cursor-pointer" @click="handlePopupEvent()"></i>
@@ -14,7 +14,7 @@
             id="categoryName"
             placeholder="Enter Category Name"
             v-model="category.categoryName"
-            class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+            class="bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal"
           />
         </div>
       </div>
@@ -27,16 +27,16 @@
             id="catDesc"
             placeholder="Enter Category Description"
             v-model="category.categoryDescription"
-            class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+            class="bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
           />
         </div>
       </div>
       <div class="form-actions pt-1 flex justify-end">
         <button
-          class="bg-blue-500 text-white px-2 py-1 rounded mr-4"
+          class="bg-blue-500 text-white px-2 py-1 rounded mr-4 focus:outline-none"
           @click="handlePopupEvent()"
         >Cancel</button>
-        <button class="bg-blue-500 text-white px-2 py-1 rounded" @click="save" name="save">Save</button>
+        <button class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none" @click="save" name="save">Save</button>
       </div>
     </div>
   </base-dialog>

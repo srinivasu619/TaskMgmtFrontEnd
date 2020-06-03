@@ -1,22 +1,26 @@
 <template>
   <base-dialog v-if="open" :width="width">
-    <div class="p-8 bg-gray-200 rounded-md">
+    <div class="p-8 bg-gray-200 rounded">
       <div class="flex justify-between mb-3">
+        <div v-if="mode ==='edit'" class="text-2xl font-bold">Edit Task</div>
         <div v-if="mode ==='detail'" class="text-2xl font-bold">{{ taskDetail.taskName }}</div>
-        <div v-if="mode ==='edit'" class="w-3/4">
-          <input
-            v-model="updatedTaskDetail.taskName"
-            type="text"
-            placeholder="Enter Title"
-            class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
-          />
-        </div>
         <i
           class="fas fa-times text-xl cursor-pointer"
           @click="handleActionButtonClick(EVENT_CLOSE)"
         ></i>
       </div>
 
+      <div v-if="mode ==='edit'" class="form-fields flex">
+        <div class="text-sm font-bold">Title</div>
+      </div>
+      <div v-if="mode ==='edit'" class="mb-3">
+        <input
+          v-model="updatedTaskDetail.taskName"
+          type="text"
+          placeholder="Enter Title"
+          class="bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal"
+        />
+      </div>
       <div class="form-fields flex">
         <div class="text-sm font-bold">Description</div>
       </div>
@@ -28,7 +32,7 @@
           v-model="updatedTaskDetail.description"
           type="text"
           placeholder="Enter Task Description"
-          class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+          class="bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
         />
       </div>
 
@@ -40,7 +44,7 @@
             <div v-if="mode ==='edit'" class="w-3/4 inline-block relative">
               <select
                 v-model="updatedTaskDetail.status"
-                class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+                class="block bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
               >
                 <option
                   :value="status.value"
@@ -74,7 +78,7 @@
                 name="taskDueDate"
                 id="taskDueDate"
                 v-model="updatedTaskDetail.dueDate"
-                class="bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+                class="bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
               />
             </div>
           </div>
@@ -89,7 +93,7 @@
             <div v-if="mode ==='edit'" class="w-3/4 inline-block relative">
               <select
                 v-model="updatedTaskDetail.priority"
-                class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+                class="block bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
               >
                 <option
                   :value="priority.value"
@@ -122,7 +126,7 @@
                 v-model="updatedTaskDetail.categoryId"
                 name="taskCat"
                 id="taskCat"
-                class="block bg-gray-400 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
+                class="block bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
               >
                 <option
                   :value="category.categoryId"
@@ -258,9 +262,9 @@ export default {
         case EVENT_SAVE:
           this.updateTask(this.updatedTaskDetail)
             .then(res => {
-              this.taskDetail = res.data
-              this.taskDetail.dueDate = this.taskDetail.dueDate.slice(0, 10)
-              this.isTaskModified = true
+              this.taskDetail = res.data;
+              this.taskDetail.dueDate = this.taskDetail.dueDate.slice(0, 10);
+              this.isTaskModified = true;
             })
             .catch(err => console.log(err))
             .finally(() => (this.mode = "detail"));

@@ -4,7 +4,7 @@
       v-for="(button, index) in buttonArray"
       :key="index"
       :class="{ 'text-blue-600 border-blue-600': index === selectedIndex, 'rounded-l': index === 0 , 'rounded-r': index === buttonArray.length - 1}"
-      class="w-1/4 font-semibold hover:text-blue-600 hover:border-blue-600 text-gray-400 my-1 py-1 px-4 h-8 border border-gray-400"
+      class="w-1/4 font-semibold hover:text-blue-600 hover:border-blue-600 text-gray-400 my-1 items-center px-4 h-8 border border-gray-400 focus:outline-none"
       @click="changeActiveState(index)"
     >{{button.name}}</button>
   </div>
