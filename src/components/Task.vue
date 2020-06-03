@@ -27,6 +27,9 @@
         <i class="far fa-clock text-xs mr-1"></i>
         <span class="text-xs">Overdue</span>
       </div>
+      <i class="far fa-arrow-alt-circle-up text-red-400" v-if="task.priority === 'HIGH'"></i>
+      <i class="far fa-arrow-alt-circle-down text-green-400" v-else-if="task.priority === 'LOW'"></i>
+      <i class="far fa-dot-circle text-yellow-400" v-else></i>
     </div>
   </div>
 </template>
