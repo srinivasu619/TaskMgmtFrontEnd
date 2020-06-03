@@ -3,11 +3,12 @@
     <div
       class="board-header flex items-center p-2 font-light border-b border-gray-300 text-gray-500 text-lg uppercase tracking-widest bg-gray-300"
     >{{name}}</div>
-    <div class="board-content taskContainer py-2 px-3 max-h-full overflow-auto">
+    <div class="board-content taskContainer py-2 px-3 max-h-full overflow-auto" v-if="tasks.length !== 0">
       <task v-for="(task,index) in tasks" :key="index" :task="task" @actionIconClick="handleActionIconClick"></task>
     </div>
     <div
-      class="board-footer text-center cursor-pointer bg-gray-300 w-1/2 mx-auto rounded-md"
+      class="board-footer cursor-pointer bg-gray-300 w-1/3 mx-auto rounded-md flex items-center justify-center text-sm"
+      v-if="tasks.length !== 0"
       @click="loadMoreTasks()"
     >Load More...</div>
   </div>
