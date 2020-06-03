@@ -162,18 +162,22 @@ export default {
           this.createTask(this.taskDetail)
             .then(res => {
               this.message = res.message;
+              this.emitPopupEvent();
             })
-            .catch(err => {
-              console.log(err);
-              this.message = "Something went wrong!";
+            .catch((err) => {
+              this.message = err;
               this.eventType = this.EVENT_ERROR;
+              this.emitPopupEvent();
             });
           break;
         case this.EVENT_CLOSE:
+          this.emitPopupEvent();
           break;
         default:
           break;
       }
+    },
+    emitPopupEvent() {
       this.$emit("handlePopupEvent", {
         type: this.eventType,
         message: this.message
