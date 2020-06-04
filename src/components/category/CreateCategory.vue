@@ -33,10 +33,10 @@
       </div>
       <div class="form-actions pt-1 flex justify-end">
         <button
-          class="bg-blue-500 text-white px-2 py-1 rounded mr-4 focus:outline-none"
+          class="focus:outline-none hover:bg-blue-100 text-blue-600 font-semibold border border-blue-600 rounded text-white px-4 py-1 mr-4"
           @click="handlePopupEvent()"
         >Cancel</button>
-        <button class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none" @click="save" name="save">Save</button>
+        <button class="bg-blue-500 text-white px-4 py-1 rounded focus:outline-none" @click="save" name="save">Save</button>
       </div>
     </div>
   </base-dialog>

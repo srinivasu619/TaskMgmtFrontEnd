@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.badge{
+    @apply rounded-md px-2 py-1 font-bold text-white tracking-widest text-sm;
+}

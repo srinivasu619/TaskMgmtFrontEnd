@@ -40,7 +40,7 @@
         <div class="w-2/4">
           <div class="flex mb-2 items-center pr-2">
             <div class="w-1/4 text-sm font-bold">Status</div>
-            <div v-if="mode ==='detail'" class="w-3/4">{{ taskDetail.status }}</div>
+            <div v-if="mode ==='detail'" class="w-3/4"><span :class="statusBadgeClass">{{ taskDetail.status }}</span></div>
             <div v-if="mode ==='edit'" class="w-3/4 inline-block relative">
               <select
                 v-model="updatedTaskDetail.status"
@@ -89,7 +89,7 @@
         <div class="w-2/4">
           <div class="flex mb-2 items-center pr-2">
             <div class="w-1/4 text-sm font-bold">Priority</div>
-            <div v-if="mode ==='detail'" class="w-3/4">{{ taskDetail.priority }}</div>
+            <div v-if="mode ==='detail'" class="w-3/4"><span :class="priorityBadgeClass">{{ taskDetail.priority }}</span></div>
             <div v-if="mode ==='edit'" class="w-3/4 inline-block relative">
               <select
                 v-model="updatedTaskDetail.priority"
@@ -232,7 +232,41 @@ export default {
   computed: {
     ...mapState({
       categories: state => state.CategoryState.categories
-    })
+    }),
+    statusBadgeClass(){
+      let badgeColorClass = '';
+      switch (this.taskDetail.status) {
+        case 'TODO':
+          badgeColorClass = 'bg-blue-500'
+          break;
+        case 'IN_PROGRESS':
+          badgeColorClass = 'bg-yellow-500'
+          break;
+        case 'DONE':
+          badgeColorClass = 'bg-green-500'
+          break;
+        default:
+          break;
+      }
+      return `badge ${badgeColorClass}`
+    },
+    priorityBadgeClass(){
+      let badgeColorClass = '';
+      switch (this.taskDetail.priority) {
+        case 'HIGH':
+          badgeColorClass = 'bg-red-500'
+          break;
+        case 'MODERATE':
+          badgeColorClass = 'bg-yellow-500'
+          break;
+        case 'LOW':
+          badgeColorClass = 'bg-green-500'
+          break;
+        default:
+          break;
+      }
+      return `badge ${badgeColorClass}`
+    }
   },
   methods: {
     ...mapActions({

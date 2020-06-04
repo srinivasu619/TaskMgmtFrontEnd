@@ -7,7 +7,7 @@
       <task v-for="(task,index) in tasks" :key="index" :task="task" @actionIconClick="handleActionIconClick"></task>
     </div>
     <div
-      class="board-footer cursor-pointer bg-gray-300 w-1/3 mx-auto rounded-md flex items-center justify-center text-sm"
+      class="board-footer cursor-pointer bg-gray-300 w-1/3 mx-auto rounded-md flex items-center justify-center text-sm font-bold"
       v-if="tasks.length !== 0"
       @click="loadMoreTasks()"
     >Load More...</div>
