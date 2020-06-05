@@ -1,6 +1,6 @@
 <template>
   <base-dialog v-if="open" :width="width">
-    <div class="p-8 bg-gray-200 rounded">
+    <div class="p-8 bg-white rounded">
       <div class="flex justify-between mb-3">
         <div class="text-2xl font-bold">Create Task</div>
         <i class="fas fa-times text-xl cursor-pointer" @click="handlePopupEvent(EVENT_CLOSE)"></i>
@@ -39,6 +39,7 @@
             name="taskDueDate"
             id="taskDueDate"
             v-model="taskDetail.dueDate"
+            :min="`${new Date().toISOString().split('T')[0]}`"
             class="bg-gray-400 focus:outline-none border border-gray-300 focus:border-blue-500 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
           />
         </div>
@@ -144,7 +145,7 @@ export default {
       taskDetail: {
         taskName: "",
         description: "",
-        dueDate: new Date().toString().slice(0, 10),
+        dueDate: new Date().toISOString().split("T")[0],
         priority: "",
         category: ""
       },

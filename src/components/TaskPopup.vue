@@ -1,6 +1,6 @@
 <template>
   <base-dialog v-if="open" :width="width">
-    <div class="p-8 bg-gray-200 rounded">
+    <div class="p-8 bg-white rounded">
       <div class="flex justify-between mb-3">
         <div v-if="mode ==='edit'" class="text-2xl font-bold">Edit Task</div>
         <div v-if="mode ==='detail'" class="text-2xl font-bold">{{ taskDetail.taskName }}</div>
@@ -78,6 +78,7 @@
                 name="taskDueDate"
                 id="taskDueDate"
                 v-model="updatedTaskDetail.dueDate"
+                :min="`${new Date().toISOString().split('T')[0]}`"
                 class="bg-gray-400 focus:outline-none focus:border-blue-500 border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal resize-none"
               />
             </div>

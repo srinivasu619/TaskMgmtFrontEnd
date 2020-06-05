@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex items-center justify-between px-4 py-2">
+  <nav class="flex items-center justify-between px-2 py-2">
     <div class="text-3xl font-bold tracking-widest text-gray-600 flex items-center" id="logo">
       <img src="../assets/logo.png" alt="task_logo.png" class="mr-4">
       <span>Task</span>

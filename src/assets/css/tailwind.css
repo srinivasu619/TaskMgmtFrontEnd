@@ -4,5 +4,5 @@
 
 
 .badge{
-    @apply rounded-md px-2 py-1 font-bold text-white tracking-widest text-sm;
+    @apply rounded-md px-2 py-1 font-semibold text-white tracking-widest text-sm;
 }

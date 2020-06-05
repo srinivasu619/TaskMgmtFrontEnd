@@ -1,6 +1,6 @@
 <template>
   <base-dialog v-if="open" :width="width">
-    <div class="p-8 bg-gray-200 rounded">
+    <div class="p-8 bg-white rounded">
       <div class="flex justify-between mb-3">
         <div class="text-2xl font-bold">Categories</div>
         <i class="fas fa-times text-xl cursor-pointer" @click="handlePopupEvent()"></i>

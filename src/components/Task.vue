@@ -12,7 +12,7 @@
     <h2 class="font-bold">{{task.taskName}}</h2>
     <p>{{task.description}}</p>
     <div class="flex items-center justify-between mt-2">
-      <div v-if="task.completionDate" class="flex items-center px-2 py-1 bg-green-400 rounded-full font-bold tracking-wider text-white">
+      <div v-if="task.completionDate" class="flex items-center px-2 py-1 bg-green-200 rounded-full font-bold tracking-wider text-green-600">
         <i class="far fa-clock text-xs mr-1"></i>
         <span class="text-xs">Completed</span>
       </div>
@@ -23,7 +23,7 @@
         <i class="far fa-clock text-xs mr-1"></i>
         <span class="text-xs">{{task.dueDate}} days</span>
       </div>
-      <div v-else class="flex items-center px-2 py-1 bg-red-400 rounded-full font-bold tracking-wider text-white">
+      <div v-else class="flex items-center px-2 py-1 bg-red-300 rounded-full font-bold tracking-wider text-red-600">
         <i class="far fa-clock text-xs mr-1"></i>
         <span class="text-xs">Overdue</span>
       </div>
